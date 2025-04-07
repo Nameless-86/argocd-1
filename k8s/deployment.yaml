@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  templete:
+  template:
     metadata:
       labels:
         app: nginx
@@ -19,5 +19,9 @@ spec:
       containers:
         - name: nginx
           image: jdoe86/nginx:v0.1.0
-          ports:
-            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            ports:
+              - containerPort: 80
